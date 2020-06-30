@@ -4,15 +4,6 @@
 \name{getPatternMatrix}
 \alias{getPatternMatrix}
 \alias{getPatternMatrix,CogapsResult-method}
-\alias{The}
-\alias{method}
-\alias{is}
-\alias{same}
-\alias{as}
-\alias{getSampleFactors}
-\alias{Alternate}
-\alias{name}
-\alias{for}
 \title{return pattern matrix from CogapsResult object}
 \usage{
 getPatternMatrix(object)

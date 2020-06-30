@@ -4,15 +4,6 @@
 \name{getAmplitudeMatrix}
 \alias{getAmplitudeMatrix}
 \alias{getAmplitudeMatrix,CogapsResult-method}
-\alias{The}
-\alias{method}
-\alias{is}
-\alias{same}
-\alias{as}
-\alias{getFeatureLoadings}
-\alias{Alternate}
-\alias{name}
-\alias{for}
 \title{return Amplitude  matrix from CogapsResult object}
 \usage{
 getAmplitudeMatrix(object)
