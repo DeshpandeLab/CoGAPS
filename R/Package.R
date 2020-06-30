@@ -24,3 +24,23 @@
 #' @importFrom Rcpp evalCpp
 #' @useDynLib CoGAPS
 NULL
+
+#' GIST gene expression data from Ochs et al. (2009)
+#' @docType data
+#' @name GIST.data_frame
+NULL
+
+#' GIST gene expression data from Ochs et al. (2009)
+#' @docType data
+#' @name GIST.matrix
+NULL
+
+#' GIST gene expression uncertainty matrix from Ochs et al. (2009)
+#' @docType data
+#' @name GIST.uncertainty
+NULL
+
+#' CoGAPS result from running on GIST dataset
+#' @docType data
+#' @name GIST.result
+NULL
