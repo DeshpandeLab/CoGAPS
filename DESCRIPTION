@@ -1,8 +1,8 @@
 Package: CoGAPS
-Version: 3.15.2
-Date: 2022-03-15
+Version: 3.23.1
+Date: 2024-02-01
 Title: Coordinated Gene Activity in Pattern Sets
-Author: Thomas Sherman, Wai-shing Lee, Conor Kelton, Ondrej Maxian, Jacob Carey,
+Author: Jeanette Johnson, Ashley Tsang, Jacob Mitchell, Thomas Sherman, Wai-shing Lee, Conor Kelton, Ondrej Maxian, Jacob Carey,
     Genevieve Stein-O'Brien, Michael Considine, Maggie Wodicka, John Stansfield,
     Shawn Sivy, Carlo Colantuoni, Alexander Favorov, Mike Ochs, Elana Fertig
 Description: Coordinated Gene Activity in Pattern Sets (CoGAPS)
@@ -13,7 +13,8 @@ Description: Coordinated Gene Activity in Pattern Sets (CoGAPS)
     analysis.
 Maintainer: Elana J. Fertig <ejfertig@jhmi.edu>,
     Thomas D. Sherman <tomsherman159@gmail.com>,
-    Jeanette Johnson <jjohn450@jhmi.edu>
+    Jeanette Johnson <jjohn450@jhmi.edu>,
+    Dmitrijs Lvovs <dlvovs1@jh.edu>
 Depends:
     R (>= 3.5.0)
 Imports:
@@ -31,12 +32,20 @@ Imports:
     SummarizedExperiment,
     tools,
     utils,
-    rhdf5
+    rhdf5,
+    biomaRt,
+    dplyr,
+    fgsea,
+    forcats,
+    ggplot2,
+    msigdbr
 Suggests:
     testthat,
     knitr,
     rmarkdown,
-    BiocStyle
+    BiocStyle,
+    SeuratObject,
+    BiocFileCache
 LinkingTo: Rcpp, BH
 VignetteBuilder: knitr
 LazyLoad: true
@@ -45,7 +54,7 @@ biocViews: GeneExpression, Transcription, GeneSetEnrichment,
     DifferentialExpression, Bayesian, Clustering, TimeCourse, RNASeq, Microarray,
     MultipleComparison, DimensionReduction, ImmunoOncology
 NeedsCompilation: yes
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.3
 Encoding: UTF-8
 Collate:
     'class-CogapsParams.R'
@@ -56,5 +65,6 @@ Collate:
     'RcppExports.R'
     'SubsetData.R'
     'class-CogapsResult.R'
+    'data.R'
     'methods-CogapsParams.R'
     'methods-CogapsResult.R'

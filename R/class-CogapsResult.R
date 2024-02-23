@@ -11,6 +11,8 @@ setClass("CogapsResult", contains="LinearEmbeddingMatrix", slots=c(
     loadingStdDev = "ANY"   # Asd
 ))
 
+
+
 #' Constructor for CogapsResult
 #' @param .Object CogapsResult object
 #' @param Amean mean of sampled A matrices
@@ -95,8 +97,7 @@ setValidity("CogapsResult",
 #' @examples
 #' data(GIST)
 #' fLoadings <- getFeatureLoadings(GIST.result)
-setGeneric("getFeatureLoadings", function(object)
-    {standardGeneric("getFeatureLoadings")})
+setGeneric("getFeatureLoadings", function(object) standardGeneric("getFeatureLoadings"))
 
 #' return Amplitude  matrix from CogapsResult object
 #' @export
@@ -152,6 +153,26 @@ setGeneric("getPatternMatrix", function(object)
 #' getMeanChiSq(GIST.result)
 setGeneric("getMeanChiSq", function(object)
     {standardGeneric("getMeanChiSq")})
+
+#' generate statistics associating patterns with MSigDB hallmark gene sets
+#' @export
+#' @docType methods
+#' @rdname getPatternHallmarks-methods
+#' @aliases getPatternHallmarks
+#' @param object an object of type CogapsResult
+#' @return dataframe of hallmark info
+setGeneric("getPatternHallmarks", function(object) standardGeneric("getPatternHallmarks"))
+
+#' generate a barchart of most significant hallmark sets for a pattern
+#' @export
+#' @docType methods
+#' @rdname plotPatternHallmarks-methods
+#' @aliases plotPatternHallmarks
+#' @param object an object of type CogapsResult
+#' @param patternhallmarks output from getPatternHallmarks
+#' @param whichpattern which pattern to generate bar chart for
+#' @return image object of barchart
+setGeneric("plotPatternHallmarks", function(object, patternhallmarks, whichpattern=1) standardGeneric("plotPatternHallmarks"))
 
 #' return version number used to generate this result
 #' @export
@@ -372,5 +393,37 @@ Pw=rep(1,ncol(object@featureLoadings)), PwNull=FALSE)
 #' @examples
 #' data(GIST)
 #' pm <- patternMarkers(GIST.result)
-setGeneric("patternMarkers", function(object, threshold="all", lp=NA, axis=1)
-    {standardGeneric("patternMarkers")})
+setGeneric("patternMarkers", function(object, threshold="all", lp=NA, axis=1) standardGeneric("patternMarkers"))
+
+#' MANOVA statistical test for patterns between sample groups
+#' @export
+#' @docType methods
+#' @rdname MANOVA-methods
+#' @description MANOVA statistical test--wraps base R manova
+#' @param interestedVariables study design for manova
+#' @param object CogapsResult object
+#' @return list of manova fit results
+setGeneric("MANOVA", function(interestedVariables, object) standardGeneric("MANOVA"))
+
+
+#' save CoGAPS Result object as a set of csvs to directory 
+#' see fromCSV
+#' @export
+#' @docType methods
+#' @rdname toCSV-methods
+#' @description save as csv
+#' @param object CogapsResult object
+#' @param save_location directory to write to
+#' @return none
+setGeneric("toCSV", function(object, save_location=".") standardGeneric("toCSV"))
+
+#' read CoGAPS Result object from a directory with a set of csvs 
+#' see toCSV
+#' @export
+#' @docType methods
+#' @rdname fromCSV-methods
+#' @description save as csv
+#' @param save_location directory to read from
+#' @return CogapsResult object
+setGeneric("fromCSV", function(save_location=".") standardGeneric("fromCSV"))
+
